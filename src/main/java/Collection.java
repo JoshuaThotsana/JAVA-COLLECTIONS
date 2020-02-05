@@ -1,26 +1,32 @@
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Collection {
 
-    public static void main(String[] args) {
+    public int[][] subset(int[] queue, int subArraySize) {
 
-        int number = 9;
-        int subArraySize = 3;
-        int[] queue = {6,2,6,8,3,7,1,4,4};
-
-        for (int i = 0; i < queue.length; i++) {
-            System.out.println(Arrays.deepToString(subset(number, subArraySize, queue)));
+        int[][] set = new int[queue.length-subArraySize+1][subArraySize];
+        for (int i = 0; i < queue.length-subArraySize+1; i++) {
+            if (subArraySize >= 0) System.arraycopy(queue, i, set[i], 0, subArraySize);
         }
-
+        return set;
     }
-    public static String[][] subset(int arraySize, int subArraySize,int[] queue) {
-        String[][] myArray = new String[arraySize-subArraySize+1][subArraySize];
 
-        for (int i = 0; i < arraySize-subArraySize+1; i++) {
-            for (int j = 0; j < subArraySize; j++) {
-                myArray[i][j] = String.valueOf(queue[j]);
+    public int unique(int[][] subset) {
+
+        int uniqueInt = 0;
+
+        for (int[] ints : subset) {
+
+            Set<Integer> set = new HashSet<>();
+
+            for (int anInt : ints) {
+                set.add(anInt);
+            }
+            if (set.toArray().length > uniqueInt) {
+                uniqueInt = set.toArray().length;
             }
         }
-        return myArray;
+        return uniqueInt;
     }
 }
