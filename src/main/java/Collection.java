@@ -11,7 +11,6 @@ public class Collection {
         }
         return set;
     }
-
     public int unique(int[][] subset) {
 
         int uniqueInt = 0;
@@ -23,8 +22,8 @@ public class Collection {
             for (int anInt : ints) {
                 set.add(anInt);
             }
-            if (set.toArray().length > uniqueInt) {
-                uniqueInt = set.toArray().length;
+            if (set.size() > uniqueInt) {
+                uniqueInt = set.size();
             }
         }
         return uniqueInt;

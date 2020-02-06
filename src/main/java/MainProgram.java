@@ -7,7 +7,7 @@ public class MainProgram {
         Collection  collection = new Collection();
 
         int subArraySize = 3;
-        int[] queue = {7,5,5,7,5,5,7,5,5,6};
+        int[] queue = {6,2,6,8,3,7,1,4,4};
 
         for (int i = 0; i < queue.length-subArraySize+1; i++) {
             System.out.println(Arrays.toString(collection.subset(queue, subArraySize)[i]));
